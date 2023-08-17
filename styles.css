@@ -1,0 +1,10 @@
+* {
+    background-color: black;
+    padding: 0;
+    margin: 0;
+}
+
+#cvs {
+    background-color: white;
+    position: fixed;
+}
