@@ -67,7 +67,7 @@ function update() {
 
     ctx.beginPath()
     ctx.fillStyle = "#4444aa"
-    ctx.arc(cirLoc[0], cirLoc[1], 50, 0, Math.PI * 2, false)
+    ctx.arc(cirLoc[0], cirLoc[1], 25, 0, Math.PI * 2, false)
     ctx.fill()
     ctx.closePath()
     
