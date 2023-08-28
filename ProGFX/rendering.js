@@ -6,6 +6,7 @@ const cvs = document.getElementById("cvs")
 /** @type {CanvasRenderingContext2D} */
 const ctx = cvs.getContext("2d")
 
+let pixelPercentage = 0.8
 let clearColor = "#000000"
 let fillColor  = "#ffffff"
 let zoom = 1
@@ -13,6 +14,20 @@ let zoom = 1
 // TODO: Finish this object:
 const render = {
 
+    /**
+     * Sets the percentage of window pixes that will be rendered on screen.
+     * @param {number} newPixelPercantage 
+     * */
+    setPixelPercentage(newPixelPercantage) {
+        pixelPercentage = newPixelPercantage
+    },
+
+    /**
+     * Gets the percentage of window pixes that are rendered on screen.
+     * */
+    getPixelPercentage() {
+        return pixelPercentage 
+    },
     
     /**
      * Sets the color that will clear the screen when calling renderer.clear()
@@ -181,15 +196,17 @@ const render = {
 }
 
 // Setup
-cvs.width  = window.innerWidth
-cvs.height = window.innerHeight
+cvs.width  = window.innerWidth  * pixelPercentage
+cvs.height = window.innerHeight * pixelPercentage
+cvs.style.width  = "100%"
+cvs.style.height = "100%"
 ctx.translate(cvs.width * 0.5, cvs.height * 0.5)
 
 
 // Events
 window.addEventListener("resize", function() {
-    cvs.width  = this.window.innerWidth
-    cvs.height = this.window.innerHeight
+    cvs.width  = window.innerWidth  * pixelPercentage
+    cvs.height = window.innerHeight * pixelPercentage
     ctx.translate(cvs.width * 0.5, cvs.height * 0.5)
     render.clear()
 })
