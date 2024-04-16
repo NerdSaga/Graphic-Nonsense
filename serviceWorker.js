@@ -4,7 +4,8 @@ const assets = [
     "/app.js",
     "/index.html",
     "/styles.css",
-    "/program.js"
+    "/program.js",
+    "ProGFX/rendering.js"
 ]
 
 self.addEventListener("install", (e) => {
